@@ -1,0 +1,55 @@
+fieldset.nested 
+{  
+    padding: 0;
+    border: 1px solid gray;
+    margin-bottom: 5px;
+}
+
+fieldset.nested legend
+{  
+    margin-left: 1em;      
+    font-weight: normal;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+fieldset.nested ol 
+{  
+    padding: 0;  
+    list-style: none;
+}
+
+fieldset.nested li 
+{  
+    /* Control leading between rows. */
+    padding-bottom: 0;
+}
+
+fieldset.nested ol li label 
+{  
+    color: #f1f1f1;
+    float: left;
+    width: 10em;        
+    margin-right: 1em;
+}
+
+/* ----------------------------------------- */
+
+input.button
+{                                  
+    /* border-style: none; */
+    width: 6em;
+    height: 2.5em;
+}
+
+div.buttonsContainer
+{
+    height: 20px;
+    padding: 5px 1em 5px 0;
+    float: right;
+}
+
+div#ajax-response {
+    text-align: center;
+}

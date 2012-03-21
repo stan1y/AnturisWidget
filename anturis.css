@@ -1,0 +1,100 @@
+body {
+	margin: 0;
+	font-family: 'Lucida Grande', verdana, arial, helvetica, sans-serif;
+	font-size: 10px;
+	text-align: left;
+	margin: auto;
+	display: block;
+	color: #0f0f0f;
+}
+
+table {
+    font-size: 11px;
+}
+
+.container {
+    width: 398px; height: 236px;
+	-webkit-perspective: 1000;
+}
+
+.card {
+    width: 398px;
+	height: 236px;
+	
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 1s;
+}
+
+.panel {
+    width: 398px; height: 236px;
+    position: absolute;
+    -webkit-backface-visibility: hidden;   
+}
+
+.inner-panel {
+    padding: 10px;
+    margin: 10px;
+}
+
+.indicator {
+    visibility: hidden;
+}
+
+li {
+    padding-left: 5px;
+}
+
+ul#components-list {
+    list-style: none;
+    padding-left: 15px;
+}
+
+.account {
+    float: left;
+}
+
+.account img {
+    float: left;
+}
+
+.account span {
+    margin-left: 10px;
+}
+
+.refresh {
+    float: right;
+}
+
+div#infrastructure-name {
+    padding-top: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.list {
+    overflow: auto;
+    height: 145px;
+}
+
+.component-name {
+    margin-left: 25px;
+}
+
+.front {
+    background-image: url('images/front.png');
+	background-repeat: no-repeat;
+}
+
+.back {
+	background-image: url('images/back.png');
+	background-repeat: no-repeat;
+	
+    -webkit-transform: rotateY(-180deg);
+}
+
+#info {
+    position: absolute;
+    left: 365px;
+    top: 205px;
+}

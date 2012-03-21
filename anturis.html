@@ -1,0 +1,91 @@
+<html>
+
+<head>
+    <title>Anturis</title>
+    
+    <link rel="stylesheet" href="anturis.css" type="text/css">
+    <link rel="stylesheet" href="forms.css" type="text/css">
+    
+    <script src="jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="json2.js" type="text/javascript"></script>
+    <script src="anturis.js" type="text/javascript"></script>
+</head>
+
+<body>
+        <div class="container">
+            <div class="card">
+
+                <div class="panel front">
+    		        <div class="inner-panel">
+            		    <div>
+            		        <div class="account">
+            		            <img src="images/logo.png">
+            		            <span>Anturis Monitoring</span>
+            		            <span id="account-info">Initializing...</span>
+            		        </div>
+            		        <div class="refresh">
+            		            <a id="refresh-link" href="#refresh" onclick="ui.onRefresh(event);">Refresh</a>
+                		        <span id="refresh-indicator" class="indicator"><img src="images/ajax-loader.gif" />Loading...</span>
+            		        </div>
+            		    </div>
+            		    <br clear="all"/>
+            		    <div>
+                		    <div id="infrastructure-name"></div>
+                		    <div class="list">
+                    		    <table id="components-list">
+                    		    </table>
+                		    </div>
+            		    </div>
+            		    <div id="info">
+            		        <img src="images/info.png" onclick="ui.showBack(event);" />
+            		    </div>
+            		</div>
+        		</div>
+	
+        		<div class="panel back">
+        		    <div class="inner-panel">
+        		        <form>
+                            <fieldset class="nested">
+                                <legend>Account details</legend>
+                                <ol>
+                                    <li>
+                                        <label for="username">User name</label>
+                                        <input id="username" name="username" type="text" style="width: 15em;" />
+                                    </li>
+                                    <li>
+                                        <label for="password">Password</label>
+                                        <input id="password" name="password" type="password" style="width: 15em;"/>
+                                    </li>
+                                </ol>
+                                <div class="buttonsContainer">
+                                    <span id="login-indicator" class="indicator"><img src="images/ajax-loader.gif" />Logging in...</span>
+                                    <span id="login-message" style="color: #f1f1f1;">Please login in.</span>
+                                    <input class="button" type="button" value="Login" onClick="ui.onLogin(event);"/> 
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="nested">
+                                <legend>Settings</legend>
+                                <ol>
+                                    <li>
+                                        <label for="infrastructure" >Infrastructure</label>
+                                        <select disabled="disabled" id="infrastructure" name="infrastructure" style="width: 15em;">
+                                        <option value="1">Default</option>
+                                        </select>
+                                    </li>
+                                </ol>
+                            </fieldset>
+
+                            <div class="buttonsContainer">
+                                <input class="button" type="button" value="Save" onClick="ui.onSaveSettings(event);"/> 
+                            </div>
+                
+                        </form>
+        		    </div>
+        		</div>
+            
+            </div>
+		</div>
+</body>
+
+</html>
