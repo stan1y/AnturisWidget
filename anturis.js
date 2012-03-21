@@ -193,6 +193,9 @@ var ui = {
     
     refresh: function() {
         if (ui.authenticated) {
+            $(ui.refreshIndicator).css('visibility', 'visible');
+            $(ui.componentsList).css('visibility', 'hidden');
+            
             //load infrastructure info
             anturis.request('GET', '/api/1/infrastructure', {
                 filter: JSON.stringify({
@@ -226,6 +229,7 @@ var ui = {
                     });
                     
                     $(ui.refreshIndicator).css('visibility', 'hidden');
+                    $(ui.componentsList).css('visibility', 'visible');
                     $(ui.refreshLink).css('visibility', 'visible');
                 },
                 error: function(req) {
@@ -329,7 +333,6 @@ var ui = {
     onRefresh: function(event) {
         if (ui.authenticated) {
             $(ui.refreshLink).css('visibility', 'hidden');
-            $(ui.refreshIndicator).css('visibility', 'visible');
             ui.refresh();
         }
     }
