@@ -64,6 +64,10 @@ var ui = {
     errorColor: 'red',
     successColor: 'LightGreen',
     
+    infrastructureSelector: 'select#infrastructure',
+    usernameTextBox: 'input#username',
+    passwordTextBox: 'input#password',
+    
     refreshLink: 'a#refresh-link',
     refreshIndicator: 'span#refresh-indicator',
     infrastructureName: 'div#infrastructure-name',
@@ -120,9 +124,9 @@ var ui = {
     },
     
     getSettings: function() {
-        var username = $('input#username').val();
-        var password = $('input#password').val();
-        var infrastructure = $('select#infrastructure').val();
+        var username = $(ui.usernameTextBox).val();
+        var password = $(ui.passwordTextBox).val();
+        var infrastructure = $(ui.infrastructureSelector).val();
         return {
             username: username,
             password: password,
@@ -132,13 +136,13 @@ var ui = {
     
     setSettings: function(prefs) {
         if (prefs.username) {
-            $('input#username').val(prefs.username);
+            $(ui.usernameTextBox).val(prefs.username);
         }
         if (prefs.password) {
-            $('input#password').val(prefs.password);
+            $(ui.passwordTextBox).val(prefs.password);
         }
         if (prefs.infrastructure) {
-            $('select#infrastructure').val(prefs.infrastructure);
+            $(ui.infrastructureSelector).val(prefs.infrastructure);
         }
     },
     
@@ -287,6 +291,27 @@ var ui = {
             success: function(json, req) {
                 $(ui.loginIndicator).css('visibility', 'hidden');
                 ui.authenticated = true;
+                
+                //update infrastructures
+                anturis.request('GET', '/api/1/infrastructure', {}, {
+                    success: function(json, req) {
+                        $(ui.infrastructureSelector).attr('disabled', false);
+                        $(ui.infrastructureSelector).empty();
+                        $.each(json.infrastructures, function(idx, infr) {
+                            $(ui.infrastructureSelector).append(
+                                '<option value="' + infr.id + '">' + 
+                                infr.name + 
+                                '</option>');
+                        });
+                    },
+                    error: function(req) {
+                        $(ui.infrastructureSelector).attr('disabled', true);
+                        $(ui.loginMessage).css('visibility', 'visible');
+                        $(ui.loginMessage).css('color', ui.errorColor);
+                        $(ui.loginMessage).text('No infrastructures: ' + req.status);
+                    }
+                });
+                
                 opts.success(json, req);
             }
         });
