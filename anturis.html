@@ -31,7 +31,7 @@
             		    <div>
                 		    <div id="infrastructure-name"></div>
                 		    <div class="list">
-                		        <span id="refresh-indicator" class="indicator"><img src="images/ajax-loader.gif" />Loading...</span>
+                		        <span id="refresh-indicator" style="display: none;"><img src="images/ajax-loader.gif" />Loading...</span>
                     		    <table id="components-list">
                     		    </table>
                 		    </div>
@@ -58,7 +58,7 @@
                                     </li>
                                 </ol>
                                 <div class="buttonsContainer">
-                                    <span id="login-indicator" class="indicator"><img src="images/ajax-loader.gif" />Logging in...</span>
+                                    <span id="login-indicator" style="visibility: hidden;"><img src="images/ajax-loader.gif" />Logging in...</span>
                                     <span id="login-message" style="color: #f1f1f1;">Please login in.</span>
                                     <input class="button" type="button" value="Login" onClick="ui.onLogin(event);"/> 
                                 </div>

@@ -193,7 +193,7 @@ var ui = {
     
     refresh: function() {
         if (ui.authenticated) {
-            $(ui.refreshIndicator).css('visibility', 'visible');
+            $(ui.refreshIndicator).css('display', 'block');
             $(ui.componentsList).css('visibility', 'hidden');
             
             //load infrastructure info
@@ -228,7 +228,7 @@ var ui = {
                             '</tr>');
                     });
                     
-                    $(ui.refreshIndicator).css('visibility', 'hidden');
+                    $(ui.refreshIndicator).css('display', 'none');
                     $(ui.componentsList).css('visibility', 'visible');
                     $(ui.refreshLink).css('visibility', 'visible');
                 },
