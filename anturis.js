@@ -10,7 +10,6 @@ var anturis = {
     },
     
     init: function() {
-        anturis.account = false;
         if (anturis.prefs.username && anturis.prefs.password) {
             anturis.authenticate(anturis.prefs.username, 
                 anturis.prefs.password);
@@ -36,8 +35,6 @@ var anturis = {
     },
     
     authenticate: function(user_name, password, opts) {
-        anturis.authenticated = false;
-        
         anturis.request('GET', '/api/1/authenticate', {
             user_name: user_name
         }, {
@@ -78,7 +75,7 @@ var ui = {
     
     init: function() {
         $.ajax({
-            url: 'https://anturis.com/static/vocabulary.json',
+            url: anturis.server + '/static/vocabulary.json',
             dataType: 'json',
             type: 'GET',
             crossDomain: true,
@@ -91,11 +88,6 @@ var ui = {
                 $(ui.accountInfo).text('Failed to load vocabulary: ' + req.status);
             }
         });
-        anturis.request('GET', 'https://anturis.com/static/vocabulary.json', {} ,{
-            success: function(json, status, req) {
-                
-            }
-        })
     },
     
     saveSettings: function(settingsDict) {
